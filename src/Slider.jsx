@@ -12,7 +12,10 @@ function getClassName(props) {
     ? 'rheostat-vertical'
     : 'rheostat-horizontal';
 
-  return ['rheostat', orientation].concat(props.className.split(' ')).join(' ');
+  const disabled = props.disabled ? 'rheostat-disabled' : null;
+
+  return ['rheostat', orientation, disabled]
+    .concat(props.className.split(' ')).filter(str => str).join(' ');
 }
 
 const has = Object.prototype.hasOwnProperty;
